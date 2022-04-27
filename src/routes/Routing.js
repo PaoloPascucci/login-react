@@ -9,6 +9,8 @@ import Home from '../screens/Home';
 import Registration from '../screens/Registration';
 import NotFound from '../screens/NotFound';
 
+import "../i18n";
+
 
 
 

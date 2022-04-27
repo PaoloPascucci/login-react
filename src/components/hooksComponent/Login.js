@@ -16,19 +16,21 @@ import "../../i18n"
 // import { useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
 
+import { useNavigate } from "react-router";
 
 
 
 const Login = () => {
-    // const navigate = useNavigate();
-    
+ const navigate = useNavigate();
+
     const userNameOnChange = (e) => {
         console.log(e)
     }
     const { t, i18n } = useTranslation();
 
-    const loginBtn = () =>{
+    const loginBtn = (params)=> (e) => {
         console.log('clicked')
+        navigate(params)
     }
     return (
         <div className="login">
@@ -36,6 +38,7 @@ const Login = () => {
 
             <InputBox
                 labelName={t("Username")}
+                content={<i className="far fa-user"></i>}
                 cssCustomLabel={'label_custom_login'}
                 type={'text'}
                 cssCustonInput={'Input_custom_login'}
@@ -46,6 +49,7 @@ const Login = () => {
             <InputBox
                 box_inputCustom={'box_inputCustom_password'}
                 labelName={t('Password')}
+                content={<i className="fa fa-lock"></i>}
                 cssCustomLabel={'label_custom_login'}
                 type={'password'}
                 cssCustonInput={'Input_custom_login'}
@@ -54,31 +58,47 @@ const Login = () => {
                 callback={userNameOnChange}
             />
             <div className="forgot_psw_link">
-                <LinkCustom 
+                <LinkCustom
+                    cssCustom="a_custom"
                     paths={paths.NOTFOUND}
-                    nameLink = {t("pd")}
+                    nameLink={t("pd")}
                 />
                 {/* <a href="#">{t("pd")}?</a> */}
             </div>
-            <Button 
-                callback={loginBtn}
+            <Button
+                callback={loginBtn(paths.HOMEPAGE)}
                 nameBtn={t("login")}
                 cssCustom={'btn_custom'}
-            
+
             />
-            <div style={{paddingTop:54,paddingBottom:20, textAlign:"center"}}>
-            {t("signUp")}
+            <div style={{ paddingTop: 54, paddingBottom: 20, textAlign: "center" }}>
+                {t("signUp")}
             </div>
-            <div style={{display: 'flex',justifyContent:"center", alignItems:"center"}}>
-                <a href="#">F</a>
-                <a style={{margin:"0 1rem"}} href="#">T</a>
-                <a href="#">G</a>
+            <div style={{ display: 'flex', justifyContent: "center", alignItems: "center" }}>
+                <LinkCustom
+                    cssCustom="color bg1"
+                    paths={paths.NOTFOUND}
+                    nameLink={<i className="fa fa-facebook"></i>}
+                />
+                <LinkCustom
+                cssCustom="color bg2"
+                    paths={paths.NOTFOUND}
+                    nameLink={<i className="fab fa-twitter"></i>}
+                />
+                <LinkCustom
+                cssCustom="color bg3"
+                    paths={paths.NOTFOUND}
+                    nameLink={<i className="fab fa-google"></i>}
+                />
             </div>
-            <div style={{paddingTop : 155,textAlign:"center"}}>
-            {t("signUp")}
+            <div style={{ paddingTop: 155, textAlign: "center" }}>
+                {t("signUp")}
             </div>
-            <div className="forgot_psw_link2" style={{textAlign:"center"}}>
-                <a href="#">{t("sign")}</a>
+            <div className="forgot_psw_link2" style={{ textAlign: "center" }}>
+                <LinkCustom
+                paths={paths.REGISTRATION}
+                nameLink={t("sign")}
+                />
             </div>
 
             <ChangeLeng />
@@ -88,3 +108,4 @@ const Login = () => {
 }
 
 export default Login
+

@@ -1,10 +1,48 @@
-.a_custom{
+.a_custom {
     color: #212529;
     text-decoration: none;
     cursor: pointer;
     font-size: 14px;
-    &:hover{
-        transition: all .4s;
+    &:hover {
+        transition: all 0.4s;
         color: #a64bf4;
+    }
+}
+
+.color {
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    cursor: pointer;
+    &:hover {
+        transition: all 0.4s;
+        background-color: black;
+    }
+}
+.color.bg1 {
+    background-color: #3b5998;
+    &:hover {
+        transition: all 0.4s;
+        background-color: black;
+    }
+}
+.color.bg2 {
+    background-color: #1da1f2;
+    &:hover {
+        transition: all 0.4s;
+        background-color: black;
+    }
+}
+.color.bg3 {
+    background-color: #ea4335;
+    &:hover {
+        transition: all 0.4s;
+        background-color: black;
     }
 }

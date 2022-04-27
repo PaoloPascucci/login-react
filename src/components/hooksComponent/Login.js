@@ -53,15 +53,15 @@ const Login = () => {
                 cssCustom={'btn_custom'}
             
             />
-            <div>
+            <div style={{paddingTop:54,paddingBottom:20}}>
                 Or vsdjkvndsjkvn
             </div>
-            <div>
-                <a href="#"></a>
-                <a href="#"></a>
-                <a href="#"></a>
+            <div style={{display: 'flex'}}>
+                <a href="#">x</a>
+                <a href="#">y</a>
+                <a href="#">z</a>
             </div>
-            <div>
+            <div style={{paddingTop : 155}}>
                 Or vsdjkvndsjkvn
             </div>
             <div>

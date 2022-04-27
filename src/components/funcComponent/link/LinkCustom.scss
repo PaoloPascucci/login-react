@@ -1,0 +1,10 @@
+.a_custom{
+    color: #212529;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+    &:hover{
+        transition: all .4s;
+        color: #a64bf4;
+    }
+}

@@ -12,8 +12,14 @@ function InputBox(props) {
     return (
         <div className={props.box_inputCustom}>
             <label className={props.cssCustomLabel}>{props.labelName}</label>
-            <input type={props.type} className={props.cssCustonInput} onChange={changeValue} placeholder={props.placeholder} />
-            <span className={props.focusSpan}></span>
+            <div className="input_mod_content">
+                <div className="content_input">
+                    +
+                </div>
+                <input type={props.type} className={props.cssCustonInput} onChange={changeValue} placeholder={props.placeholder} />
+
+            </div>
+            {/* <span className={props.focusSpan}></span> */}
         </div>
     )
 }
@@ -32,7 +38,7 @@ InputBox.propTypes = {
     labelName: PropTypes.string,
     cssCustonInput: PropTypes.string,
     placeholder: PropTypes.string,
-    box_inputCustom : PropTypes.string,
+    box_inputCustom: PropTypes.string,
 }
 
 export default InputBox;

@@ -7,7 +7,10 @@ import './Login.scss';
 import InputBox from '../funcComponent/inputBox/InputBox';
 import Button from '../funcComponent/button/Button';
 import ChangeLeng from "./changeLeng/ChangeLeng";
+import LinkCustom from "../funcComponent/link/LinkCustom";
 
+// paths 
+import paths from '../../routes/paths'
 
 import "../../i18n"
 // import { useNavigate } from "react-router";
@@ -47,11 +50,15 @@ const Login = () => {
                 type={'password'}
                 cssCustonInput={'Input_custom_login'}
                 placeholder={t('labelP')}
-                focusSpan={'focusSpan'}
+                // focusSpan={'focusSpan'}
                 callback={userNameOnChange}
             />
             <div className="forgot_psw_link">
-                <a href="#">{t("pd")}?</a>
+                <LinkCustom 
+                    paths={paths.NOTFOUND}
+                    nameLink = {t("pd")}
+                />
+                {/* <a href="#">{t("pd")}?</a> */}
             </div>
             <Button 
                 callback={loginBtn}

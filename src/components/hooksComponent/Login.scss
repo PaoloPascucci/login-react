@@ -13,6 +13,19 @@
         text-align: center;
         padding-bottom: 49px;
     }
+    .forgot_psw_link{
+        text-align: end;
+        padding-bottom: 31px;
+        padding-top: 8px;
+        font-weight: 400;
+        a{
+            color: #212529;
+            text-decoration: none;
+            &:hover{
+                color: #a64bf4;
+            }
+        }
+    }
 }
 
 @media all and (max-width:576px) {

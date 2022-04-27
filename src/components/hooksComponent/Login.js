@@ -39,36 +39,36 @@ const Login = () => {
 
             <InputBox
                 box_inputCustom={'box_inputCustom_password'}
-                labelName={'Password'}
+                labelName={t('Password')}
                 cssCustomLabel={'label_custom_login'}
                 type={'password'}
                 cssCustonInput={'Input_custom_login'}
-                placeholder={'Type your username'}
+                placeholder={t('labelP')}
                 focusSpan={'focusSpan'}
                 callback={userNameOnChange}
             />
             <div className="forgot_psw_link">
-                <a href="#">Forgot password?</a>
+                <a href="#">{t("pd")}?</a>
             </div>
             <Button 
                 callback={loginBtn}
-                nameBtn={'LOGIN'}
+                nameBtn={t("login")}
                 cssCustom={'btn_custom'}
             
             />
-            <div style={{paddingTop:54,paddingBottom:20}}>
-                Or vsdjkvndsjkvn
+            <div style={{paddingTop:54,paddingBottom:20, textAlign:"center"}}>
+            {t("signUp")}
             </div>
-            <div style={{display: 'flex'}}>
-                <a href="#">x</a>
-                <a href="#">y</a>
-                <a href="#">z</a>
+            <div style={{display: 'flex',justifyContent:"center", alignItems:"center"}}>
+                <a href="#">F</a>
+                <a style={{margin:"0 1rem"}} href="#">T</a>
+                <a href="#">G</a>
             </div>
-            <div style={{paddingTop : 155}}>
-                Or vsdjkvndsjkvn
+            <div style={{paddingTop : 155,textAlign:"center"}}>
+            {t("signUp")}
             </div>
-            <div>
-                <a href="#"></a>
+            <div className="forgot_psw_link2" style={{textAlign:"center"}}>
+                <a href="#">{t("sign")}</a>
             </div>
         </div>
 

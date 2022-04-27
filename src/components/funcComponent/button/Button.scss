@@ -1,9 +1,14 @@
 .btn_custom{
-    width: 100%;
+    width: 90%;
+    margin: 0 1.5rem;
+    height: 40px;
     border-style: none;
+    border-radius: 25px;
     background: #a64bf4;
-background: -webkit-linear-gradient(right,#00dbde,#fc00ff,#00dbde,#fc00ff);
-background: -o-linear-gradient(right,#00dbde,#fc00ff,#00dbde,#fc00ff);
-background: -moz-linear-gradient(right,#00dbde,#fc00ff,#00dbde,#fc00ff);
-background: linear-gradient(right,#00dbde,#fc00ff,#00dbde,#fc00ff);
-}
+    background-repeat: no-repeat;
+    color: white;
+background: -webkit-linear-gradient(left,#00dbde,#fc00ff);
+// background: -o-linear-gradient(right,#00dbde,#fc00ff,#00dbde,#fc00ff);
+// background: -moz-linear-gradient(right,#00dbde,#fc00ff,#00dbde,#fc00ff);
+// background: linear-gradient(right,#00dbde,#fc00ff,#00dbde,#fc00ff)
+ }

@@ -5,11 +5,14 @@ import './Login.scss';
 
 // import components 
 import InputBox from '../funcComponent/inputBox/InputBox';
-import Button from '../funcComponent/button/Button'
+import Button from '../funcComponent/button/Button';
+import ChangeLeng from "./changeLeng/ChangeLeng";
+
 
 import "../../i18n"
 // import { useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
+
 
 
 
@@ -70,6 +73,8 @@ const Login = () => {
             <div className="forgot_psw_link2" style={{textAlign:"center"}}>
                 <a href="#">{t("sign")}</a>
             </div>
+
+            <ChangeLeng />
         </div>
 
     )

@@ -7,25 +7,23 @@ import './Login.scss';
 import InputBox from '../funcComponent/inputBox/InputBox'
 
 import "../../i18n"
-import { useNavigate } from "react-router";
-import {  useTranslation } from "react-i18next";
+// import { useNavigate } from "react-router";
+import { useTranslation } from "react-i18next";
 
 
 
 const Login = () => {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
+    
     const userNameOnChange = (e) => {
         console.log(e)
     }
-const {t, i18n} = useTranslation();
+    const { t, i18n } = useTranslation();
 
     return (
         <div className="login">
             <h1>Login</h1>
-            <div>
-                <button>En</button>
-                <button>It</button>
-            </div>
+
             <InputBox
                 labelName={t("Username")}
                 cssCustomLabel={'label_custom_login'}

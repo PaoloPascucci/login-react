@@ -1,5 +1,8 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
+
+
+//translation
 import translationEN from "./jsonTranslate/en/translationEn.json"
 import translationIt from "./jsonTranslate/it/translationIt.json";
 
@@ -18,8 +21,12 @@ i18n
     .init({
         resources,
         lng: "en",
+
         keySeparator: false,
-        Interpolation: { EscapeValues: false }
+
+        Interpolation: {
+            escapeValue: false
+        }
     });
 
 export default i18n

@@ -1,9 +1,8 @@
 {
     "Username":"Username",
-    "label":"Type your",
-    "labelU":"username",
+    "labelU":"Type your username",
     "Password":"Password",
-    "labelP":"password",
+    "labelP":"Type your password",
     "signUp":"Or Sign Up Using",
     "login":"LOGIN",
     "sign":"SIGN UP"

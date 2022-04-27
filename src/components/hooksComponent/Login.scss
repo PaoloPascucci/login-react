@@ -2,7 +2,7 @@
 
 .login{
     background-color: white;
-    width: 100%;
+    width: 500px;
     padding: 65px 55px 54px ;
     border-radius: 10px;
     h1{
@@ -26,6 +26,16 @@
             }
         }
     }
+    .forgot_psw_link2{
+        font-weight: 400;
+        a{
+            color: #212529;
+            text-decoration: none;
+            &:hover{
+                color: #a64bf4;
+            }
+        }
+}
 }
 
 @media all and (max-width:576px) {

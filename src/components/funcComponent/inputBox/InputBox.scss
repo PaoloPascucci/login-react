@@ -1,14 +1,68 @@
 @import '../../../variablesScss/variable.scss';
+.box_inputCustom, .box_inputCustom_password{
+    margin-bottom: 23px;
+    border-bottom: 2px solid #d9d9d9;
+    position: relative;
+    .focusSpan{
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        &::after{
+            content: 'u';
+            font-family: Material-Design-Iconic-Font;
+            color: #adadad;
+            font-size: 22px;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100% - 20px);
+            bottom: 0;
+            left: 0;
+            padding-left: 13px;
+            padding-top: 3px;
+        }
+        &::before{
+            box-sizing: inherit;
+            content: "";
+            display: block;
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #7f7f7f;
+            transition: all .4s;
+        }
 
+    }
+}
+.box_inputCustom_password{
+    margin-bottom: 0;
+}
 .label_custom_login{
     display: block;
     color: $primary_color;
+    padding-left: 7px;
 }
 .Input_custom_login{
+    padding: 0 7px 0 43px;
     width: 100%;
     line-height: 1.2;
     height: 55px;
     color: $secondary_color;
+    font-weight: 500;
+    font-size: 16px;
+    border-style: none;
+    font-family: 'Poppins';
+
+    &:focus{
+        outline: none;
+    }
 }
 .Input_custom_login::before{
     content: "+"

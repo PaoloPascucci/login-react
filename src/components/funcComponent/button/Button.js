@@ -1,12 +1,12 @@
 import React from "react";
 // css 
-import "./UiButton.scss";
+import "./Button.scss";
 
 // import proptypes 
 import PropTypes from "prop-types";
 
 
-function UiButton(props) {
+function Button(props) {
     function send(e) {
         props.callback(e)
     }
@@ -24,15 +24,15 @@ function UiButton(props) {
 
 // default props 
 
-UiButton.defaultProps = {
+Button.defaultProps = {
     type: 'submit'
 }
 
 // propTypes 
-UiButton.propTypes = {
+Button.propTypes = {
     callback: PropTypes.func,
     type: PropTypes.string.isRequired,
     nameBtn: PropTypes.string.isRequired,
     cssCustom: PropTypes.string
 }
-export default UiButton;
+export default Button;

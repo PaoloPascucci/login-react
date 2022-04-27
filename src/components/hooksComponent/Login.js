@@ -4,7 +4,8 @@ import React from "react";
 import './Login.scss';
 
 // import components 
-import InputBox from '../funcComponent/inputBox/InputBox'
+import InputBox from '../funcComponent/inputBox/InputBox';
+import Button from '../funcComponent/button/Button'
 
 import "../../i18n"
 // import { useNavigate } from "react-router";
@@ -20,6 +21,9 @@ const Login = () => {
     }
     const { t, i18n } = useTranslation();
 
+    const loginBtn = () =>{
+        console.log('clicked')
+    }
     return (
         <div className="login">
             <h1>Login</h1>
@@ -32,6 +36,40 @@ const Login = () => {
                 placeholder={t("labelU")}
                 callback={userNameOnChange}
             />
+
+            <InputBox
+                box_inputCustom={'box_inputCustom_password'}
+                labelName={'Password'}
+                cssCustomLabel={'label_custom_login'}
+                type={'password'}
+                cssCustonInput={'Input_custom_login'}
+                placeholder={'Type your username'}
+                focusSpan={'focusSpan'}
+                callback={userNameOnChange}
+            />
+            <div className="forgot_psw_link">
+                <a href="#">Forgot password?</a>
+            </div>
+            <Button 
+                callback={loginBtn}
+                nameBtn={'LOGIN'}
+                cssCustom={'btn_custom'}
+            
+            />
+            <div style={{paddingTop:54,paddingBottom:20}}>
+                Or vsdjkvndsjkvn
+            </div>
+            <div style={{display: 'flex'}}>
+                <a href="#">x</a>
+                <a href="#">y</a>
+                <a href="#">z</a>
+            </div>
+            <div style={{paddingTop : 155}}>
+                Or vsdjkvndsjkvn
+            </div>
+            <div>
+                <a href="#"></a>
+            </div>
         </div>
 
     )

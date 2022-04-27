@@ -1,0 +1,23 @@
+@import '../../variablesScss/variable.scss';
+
+.login{
+    background-color: white;
+    width: 100%;
+    padding: 65px 55px 54px ;
+    border-radius: 10px;
+    h1{
+        font-family: 'Poppins', sans-serif;
+        font-weight: bold;
+        font-size: 39px;
+        color: $primary_color;
+        text-align: center;
+        padding-bottom: 49px;
+    }
+}
+
+@media all and (max-width:576px) {
+    .login{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}

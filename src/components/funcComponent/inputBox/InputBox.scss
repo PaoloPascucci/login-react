@@ -1,0 +1,15 @@
+@import '../../../variablesScss/variable.scss';
+
+.label_custom_login{
+    display: block;
+    color: $primary_color;
+}
+.Input_custom_login{
+    width: 100%;
+    line-height: 1.2;
+    height: 55px;
+    color: $secondary_color;
+}
+.Input_custom_login::before{
+    content: "+"
+}

@@ -1,6 +1,6 @@
 const paths = {
     HOMEPAGE : '/homepage',
-    LOGIN : '/',
+    LOGINBOX : '/',
     REGISTRATION : '/registration',
     NOTFOUND : '*'
 }

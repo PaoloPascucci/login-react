@@ -46,3 +46,14 @@
         background-color: black;
     }
 }
+.sign_up_bottom{
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+    &:hover{
+        color: #a64bf4;
+        transition: all .4s;
+    }
+}

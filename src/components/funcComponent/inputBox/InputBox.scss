@@ -1,25 +1,28 @@
 @import "../../../variablesScss/variable.scss";
-.box_inputCustom,
-.box_inputCustom_password {
+// box input username 
+.box_inputCustom_user{
     margin-bottom: 23px;
-    position: relative;
 }
+
+// box contenitore input + content
 .input_mod_content {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-bottom: 3px solid #d9d9d9;
-    .content_input {
-        width: 10%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: #adadad;
-    }
+    border-bottom: 2px solid #d9d9d9;
 }
-.box_inputCustom_password {
-    margin-bottom: 0;
+
+// contenitore content 
+.content_input {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #adadad;
+    order: 1;
 }
+
 .label_custom_login {
     display: block;
     color: $primary_color;
@@ -34,13 +37,59 @@
     font-size: 16px;
     border-style: none;
     font-family: "Poppins";
+    order: 2;
     &::placeholder {
         color: #adadad;
     }
     &:focus {
         outline: none;
-        .input_mod_content .content_input {
-            color: #a64bf4;
+        
+    }
+    &:focus ~ .focus_border {
+        background-color: #7f7f7f;
+        height: 2px;
+        width: 100%;
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        animation: focusInput .3s linear;
+    }
+    &:focus  ~ .content_input {
+        color: #a64bf4;
+    }
+}
+
+.error{
+    position: absolute;
+    max-width: 70%;
+    background-color: #fff;
+    padding: 4px 4px 4px 8px;
+    bottom: 50%;
+    right: 8px;
+    font-size: 13px;
+    color: #c80000;
+    transform: translateY(50%);
+    .advice_error{
+        visibility:hidden;
+    }
+    &:hover{
+        border: 1px solid #c80000;
+        border-radius: 2px;
+        transition: .2s;
+        .advice_error{
+            visibility: visible;
         }
+    }
+    // &:hover ~.advice_error{
+    //     visibility: visible;
+    // }
+}
+
+@keyframes focusInput {
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 100%;
     }
 }

@@ -13,13 +13,14 @@ function InputBox(props) {
         <div className={props.box_inputCustom}>
             <label className={props.cssCustomLabel}>{props.labelName}</label>
             <div className="input_mod_content">
-                <div className="content_input">
-                {props.content}
-                </div>
-                <input type={props.type} className={props.cssCustonInput} onChange={changeValue} placeholder={props.placeholder} />
 
+                <input type={props.type} className={props.cssCustomInput} onChange={changeValue} placeholder={props.placeholder} />
+                <div className="content_input">
+                    {props.content}
+                </div>
+                <div className="focus_border"></div>
+                {props.children}
             </div>
-            {/* <span className={props.focusSpan}></span> */}
         </div>
     )
 }
@@ -36,7 +37,7 @@ InputBox.propTypes = {
     type: PropTypes.string.isRequired,
     cssCustomLabel: PropTypes.string,
     labelName: PropTypes.string,
-    cssCustonInput: PropTypes.string,
+    cssCustomInput: PropTypes.string,
     placeholder: PropTypes.string,
     box_inputCustom: PropTypes.string,
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 
 // css 
 import './Login.scss';
@@ -12,6 +12,9 @@ import LinkCustom from "../funcComponent/link/LinkCustom";
 // paths 
 import paths from '../../routes/paths'
 
+// utils 
+import {checkPassword} from '../../utils/utils'
+
 import "../../i18n"
 // import { useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
@@ -21,29 +24,71 @@ import { useNavigate } from "react-router";
 
 
 const Login = () => {
- const navigate = useNavigate();
+    let nameUser = null;
+    let password = null
+    const navigate = useNavigate();
 
+    const [state,setState] = useState({
+        errorUser: false,
+        errorPassword : false
+    })
+   
     const userNameOnChange = (e) => {
-        console.log(e)
+        nameUser = e;
+    }
+    const passwordOnChange = (e) =>{
+        password = e;
+        console.log(checkPassword(e));
+
     }
     const { t, i18n } = useTranslation();
 
-    const loginBtn = (params)=> (e) => {
-        console.log('clicked')
-        navigate(params)
+    const loginBtn = (params) => () => {
+        console.log(nameUser,'   ', password)
+        let obj = {...state}
+        if(!nameUser && !password){
+            obj.errorUser = true;
+            obj.errorPassword = true;
+        } else if (!nameUser || !password){
+            if(!nameUser){
+                obj.errorUser = true;
+            } else if (!password){
+                obj.errorPassword = true;
+            }
+        }else{
+            obj.errorUser = false;
+            obj.errorPassword = false;
+            navigate(params)
+        }
+        setState(obj)
+
+        
+       
+    }
+    const checkErrorMessageUsername = () => {
+        if (state.errorUser){
+            return (<div className="error"><span className="advice_error">Username is required</span> <span><i className="fas fa-exclamation-circle"></i></span></div>)
+        }
+    }
+    const checkErrorMessagePassword = () => {
+        if (state.errorPassword){
+            return (<div className="error"><span className="advice_error">Username is required</span> <span><i className="fas fa-exclamation-circle"></i></span></div>)
+        }
     }
     return (
         <div className="login">
             <h1>Login</h1>
 
             <InputBox
+                box_inputCustom={'box_inputCustom_user'}
                 labelName={t("Username")}
                 content={<i className="far fa-user"></i>}
                 cssCustomLabel={'label_custom_login'}
                 type={'text'}
-                cssCustonInput={'Input_custom_login'}
+                cssCustomInput={'Input_custom_login'}
                 placeholder={t("labelU")}
                 callback={userNameOnChange}
+                children={checkErrorMessageUsername()}
             />
 
             <InputBox
@@ -52,10 +97,10 @@ const Login = () => {
                 content={<i className="fa fa-lock"></i>}
                 cssCustomLabel={'label_custom_login'}
                 type={'password'}
-                cssCustonInput={'Input_custom_login'}
+                cssCustomInput={'Input_custom_login'}
                 placeholder={t('labelP')}
-                // focusSpan={'focusSpan'}
-                callback={userNameOnChange}
+                callback={passwordOnChange}
+                children={checkErrorMessagePassword()}
             />
             <div className="forgot_psw_link">
                 <LinkCustom
@@ -63,7 +108,6 @@ const Login = () => {
                     paths={paths.NOTFOUND}
                     nameLink={t("pd")}
                 />
-                {/* <a href="#">{t("pd")}?</a> */}
             </div>
             <Button
                 callback={loginBtn(paths.HOMEPAGE)}
@@ -71,7 +115,7 @@ const Login = () => {
                 cssCustom={'btn_custom'}
 
             />
-            <div style={{ paddingTop: 54, paddingBottom: 20, textAlign: "center" }}>
+            <div className="sign_advice usingSocial">
                 {t("signUp")}
             </div>
             <div style={{ display: 'flex', justifyContent: "center", alignItems: "center" }}>
@@ -81,23 +125,24 @@ const Login = () => {
                     nameLink={<i className="fa fa-facebook"></i>}
                 />
                 <LinkCustom
-                cssCustom="color bg2"
+                    cssCustom="color bg2"
                     paths={paths.NOTFOUND}
                     nameLink={<i className="fab fa-twitter"></i>}
                 />
                 <LinkCustom
-                cssCustom="color bg3"
+                    cssCustom="color bg3"
                     paths={paths.NOTFOUND}
                     nameLink={<i className="fab fa-google"></i>}
                 />
             </div>
-            <div style={{ paddingTop: 155, textAlign: "center" }}>
+            <div className="sign_advice new">
                 {t("signUp")}
             </div>
             <div className="forgot_psw_link2" style={{ textAlign: "center" }}>
                 <LinkCustom
-                paths={paths.REGISTRATION}
-                nameLink={t("sign")}
+                    cssCustom={'sign_up_bottom'}
+                    paths={paths.REGISTRATION}
+                    nameLink={t("sign")}
                 />
             </div>
 

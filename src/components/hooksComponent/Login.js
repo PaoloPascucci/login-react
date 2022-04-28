@@ -48,11 +48,7 @@ const Login = () => {
         let obj = { ...state }
         if (checkPassword(e)) {
             obj.errorPassword = false;
-            //  obj.errorMessagePassword = null;
             password = e;
-        } else {
-            obj.errorPassword = true;
-            //obj.errorMessagePassword = t("errorPCar")
         }
         setState(obj)
 

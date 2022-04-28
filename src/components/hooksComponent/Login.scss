@@ -33,6 +33,13 @@
         padding-top: 155px;
         padding-bottom: 17px;
     }
+    .box_button{
+        width: 100%;
+        overflow: hidden;
+        border-radius: 25px;
+        position: relative;
+        height: 50px;
+    }
 }
 
 @media all and (max-width:576px) {

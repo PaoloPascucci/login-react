@@ -48,7 +48,7 @@ const Login = () => {
         let obj = { ...state }
         if (checkPassword(e)) {
             obj.errorPassword = false;
-          //  obj.errorMessagePassword = null;
+            //  obj.errorMessagePassword = null;
             password = e;
         } else {
             obj.errorPassword = true;
@@ -130,12 +130,15 @@ const Login = () => {
                     nameLink={t("pd")}
                 />
             </div>
-            <Button
-                callback={loginBtn(paths.HOMEPAGE)}
-                nameBtn={t("login")}
-                cssCustom={'btn_custom'}
+            <div className="box_button">
+                <Button
+                    callback={loginBtn(paths.HOMEPAGE)}
+                    nameBtn={<span className="name_btn">{t("login")}</span>}
+                    cssCustom={'btn_custom'}
 
-            />
+                />
+            </div>
+
             <div className="sign_advice usingSocial">
                 {t("signUp")}
             </div>

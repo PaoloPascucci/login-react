@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState,useEffect } from "react";
 
 // css 
 import './Login.scss';
@@ -13,7 +13,7 @@ import LinkCustom from "../funcComponent/link/LinkCustom";
 import paths from '../../routes/paths'
 
 // utils 
-import {checkPassword} from '../../utils/utils'
+import { checkPassword } from '../../utils/utils'
 
 import "../../i18n"
 // import { useNavigate } from "react-router";
@@ -21,58 +21,76 @@ import { useTranslation } from "react-i18next";
 
 import { useNavigate } from "react-router";
 
-
+let nameUser = null;
+let password = null;
 
 const Login = () => {
-    let nameUser = null;
-    let password = null
+
     const navigate = useNavigate();
 
-    const [state,setState] = useState({
+    const [state, setState] = useState({
         errorUser: false,
-        errorPassword : false
+        errorPassword: false,
+        errorMessagePassword: "password is required",
     })
-   
+
+    useEffect(()=>{
+        return ()=>{
+            // console.log('distrutto')
+            // password = null;
+            // nameUser = null;
+        }
+    })
+
     const userNameOnChange = (e) => {
         nameUser = e;
     }
-    const passwordOnChange = (e) =>{
-        password = e;
-        console.log(checkPassword(e));
+    const passwordOnChange = (e) => {
+        let obj = { ...state }
+        if (checkPassword(e)) {
+            obj.errorPassword = false;
+            obj.errorMessagePassword = null;
+            password = e;
+        } else {
+            obj.errorPassword = true;
+            obj.errorMessagePassword = "la password deve contenere un carattere speciale e almeno 8 caratteri"
+        }
+        setState(obj)
+
 
     }
     const { t, i18n } = useTranslation();
 
     const loginBtn = (params) => () => {
-        console.log(nameUser,'   ', password)
-        let obj = {...state}
-        if(!nameUser && !password){
+        console.log(nameUser, '   ', password)
+        let obj = { ...state }
+        if (!nameUser && !password) {
             obj.errorUser = true;
             obj.errorPassword = true;
-        } else if (!nameUser || !password){
-            if(!nameUser){
+        } else if (!nameUser || !password) {
+            if (!nameUser) {
                 obj.errorUser = true;
-            } else if (!password){
+            } else if (!password) {
                 obj.errorPassword = true;
             }
-        }else{
+        } else {
             obj.errorUser = false;
             obj.errorPassword = false;
             navigate(params)
         }
         setState(obj)
 
-        
-       
+
+
     }
     const checkErrorMessageUsername = () => {
-        if (state.errorUser){
+        if (state.errorUser) {
             return (<div className="error"><span className="advice_error">Username is required</span> <span><i className="fas fa-exclamation-circle"></i></span></div>)
         }
     }
     const checkErrorMessagePassword = () => {
-        if (state.errorPassword){
-            return (<div className="error"><span className="advice_error">Username is required</span> <span><i className="fas fa-exclamation-circle"></i></span></div>)
+        if (state.errorPassword) {
+            return (<div className="error"><span className="advice_error">{state.errorMessagePassword}</span> <span><i className="fas fa-exclamation-circle"></i></span></div>)
         }
     }
     return (

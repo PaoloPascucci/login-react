@@ -8,5 +8,6 @@
     "login":"ACCEDI",
     "sign":"ISCRIVITI",
     "errorU":"Nome Utente obbligatorio",
-    "errorP":"Password obbligatoria"
+    "errorP":"Password obbligatoria",
+    "errorPCar":"la password deve contenere 1 carattere speciale e almeno 8"
 }

@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 // css 
 import './Login.scss';
@@ -31,15 +31,15 @@ const Login = () => {
     const [state, setState] = useState({
         errorUser: false,
         errorPassword: false,
-        errorMessagePassword: "password is required",
+        //errorMessagePassword: "",
     })
 
-    useEffect(()=>{
-        return ()=>{
+    useEffect(() => {
+        return () => {
             password = null;
             nameUser = null;
         }
-    },[])
+    }, [])
 
     const userNameOnChange = (e) => {
         nameUser = e;
@@ -48,11 +48,11 @@ const Login = () => {
         let obj = { ...state }
         if (checkPassword(e)) {
             obj.errorPassword = false;
-            obj.errorMessagePassword = null;
+          //  obj.errorMessagePassword = null;
             password = e;
         } else {
             obj.errorPassword = true;
-            obj.errorMessagePassword = "la password deve contenere un carattere speciale e almeno 8 caratteri"
+            //obj.errorMessagePassword = t("errorPCar")
         }
         setState(obj)
 
@@ -84,14 +84,16 @@ const Login = () => {
     }
     // messaggio di errore se utente null 
     const checkErrorMessageUsername = () => {
-        if (state.errorUser){
+        if (state.errorUser) {
             return (<div className="error"><span className="advice_error">{t("errorU")}</span> <span><i className="fas fa-exclamation-circle"></i></span></div>)
         }
     }
     // messaggio di errore se password non corretta
     const checkErrorMessagePassword = () => {
-        if (state.errorPassword){
-            return (<div className="error"><span className="advice_error">{t("errorP")}</span> <span><i className="fas fa-exclamation-circle"></i></span></div>)
+
+        if (state.errorPassword) {
+            return (<div className="error"><span className="advice_error">
+                {t("errorPCar")}</span> <span><i className="fas fa-exclamation-circle"></i></span></div>)
         }
     }
     return (

@@ -8,5 +8,6 @@
     "login":"LOGIN",
     "sign":"SIGN UP",
     "errorU":"Username is required",
-    "errorP":"Password is required"
+    "errorP":"Password is required",
+    "errorPCar":"Password must have 1 special character and at least 8 characters"
 }

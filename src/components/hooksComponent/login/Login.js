@@ -49,7 +49,13 @@ const Login = () => {
 
     // funzione valorizza nameUser al change input Username 
     const userNameOnChange = (e) => {
+        let obj = {...state}
         nameUser = e;
+        if (nameUser!== null || nameUser !== ""){
+            obj.errorUser = false
+        }
+        setState(obj)
+
     }
     // funzione valorizza password + controllo se la password è corretta (il controllo è su utils)
     const passwordOnChange = (e) => {

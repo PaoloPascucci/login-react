@@ -71,4 +71,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 ### `npm install`
-Già installati react-router-dom e i18n ( eseguire solo npm install)
+Già installati react-router-dom ,i18n ,sass,font-awesome (versione meno di 6) ( eseguire solo npm install)

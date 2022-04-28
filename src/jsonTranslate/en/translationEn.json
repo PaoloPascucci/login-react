@@ -6,5 +6,7 @@
     "signUp":"Or Sign Up Using",
     "pd":"Forgot password?",
     "login":"LOGIN",
-    "sign":"SIGN UP"
+    "sign":"SIGN UP",
+    "errorU":"Username is required",
+    "errorP":"Password is required"
 }

@@ -67,12 +67,12 @@ const Login = () => {
     }
     const checkErrorMessageUsername = () => {
         if (state.errorUser){
-            return (<div className="error"><span className="advice_error">Username is required</span> <span><i className="fas fa-exclamation-circle"></i></span></div>)
+            return (<div className="error"><span className="advice_error">{t("errorU")}</span> <span><i className="fas fa-exclamation-circle"></i></span></div>)
         }
     }
     const checkErrorMessagePassword = () => {
         if (state.errorPassword){
-            return (<div className="error"><span className="advice_error">Username is required</span> <span><i className="fas fa-exclamation-circle"></i></span></div>)
+            return (<div className="error"><span className="advice_error">{t("errorP")}</span> <span><i className="fas fa-exclamation-circle"></i></span></div>)
         }
     }
     return (

@@ -6,5 +6,7 @@
     "signUp":"oppure Iscritivi usando",
     "pd":"Passsword Dimenticata?",
     "login":"ACCEDI",
-    "sign":"ISCRIVITI"
+    "sign":"ISCRIVITI",
+    "errorU":"Nome Utente obbligatorio",
+    "errorP":"Password obbligatoria"
 }

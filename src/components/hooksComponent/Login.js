@@ -36,11 +36,10 @@ const Login = () => {
 
     useEffect(()=>{
         return ()=>{
-            // console.log('distrutto')
-            // password = null;
-            // nameUser = null;
+            password = null;
+            nameUser = null;
         }
-    })
+    },[])
 
     const userNameOnChange = (e) => {
         nameUser = e;
@@ -83,11 +82,13 @@ const Login = () => {
 
 
     }
+    // messaggio di errore se utente null 
     const checkErrorMessageUsername = () => {
         if (state.errorUser){
             return (<div className="error"><span className="advice_error">{t("errorU")}</span> <span><i className="fas fa-exclamation-circle"></i></span></div>)
         }
     }
+    // messaggio di errore se password non corretta
     const checkErrorMessagePassword = () => {
         if (state.errorPassword){
             return (<div className="error"><span className="advice_error">{t("errorP")}</span> <span><i className="fas fa-exclamation-circle"></i></span></div>)

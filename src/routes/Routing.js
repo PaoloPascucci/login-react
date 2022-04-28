@@ -4,10 +4,10 @@ import { Routes, Route } from 'react-router-dom';
 import paths from './paths';
 
 // import components 
-import LoginBox from '../screens/LoginBox';
-import Home from '../screens/Home';
-import Registration from '../screens/Registration';
-import NotFound from '../screens/NotFound';
+import LoginBox from '../screens/loginBox/LoginBox';
+import Home from '../screens/home/Home';
+import Registration from '../screens/registration/Registration';
+import NotFound from '../screens/notFound/NotFound';
 
 import "../i18n";
 

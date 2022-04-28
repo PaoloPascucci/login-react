@@ -4,18 +4,19 @@ import React, { useState, useEffect } from "react";
 import './Login.scss';
 
 // import components 
-import InputBox from '../funcComponent/inputBox/InputBox';
-import Button from '../funcComponent/button/Button';
-import ChangeLeng from "./changeLeng/ChangeLeng";
-import LinkCustom from "../funcComponent/link/LinkCustom";
+import InputBox from '../../funcComponent/inputBox/InputBox';
+import x from '../../../'
+import Button from '../../funcComponent/button/Button';
+import ChangeLeng from "../changeLeng/ChangeLeng";
+import LinkCustom from "../../funcComponent/link/LinkCustom";
 
 // paths 
-import paths from '../../routes/paths'
+import paths from '../../../routes/paths'
 
 // utils 
-import { checkPassword } from '../../utils/utils'
+import { checkPassword } from '../../../utils/utils'
 
-import "../../i18n"
+import "../../../i18n"
 // import { useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
 

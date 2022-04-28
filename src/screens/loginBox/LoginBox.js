@@ -5,7 +5,7 @@ import React from "react";
 // css 
 import './LoginBox.scss'
 // components 
-import Login from "../components/hooksComponent/Login";
+import Login from "../../components/hooksComponent/login/Login";
 
 const LoginBox = () => {
     return (

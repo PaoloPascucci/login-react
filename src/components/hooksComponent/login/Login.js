@@ -5,7 +5,6 @@ import './Login.scss';
 
 // import components 
 import InputBox from '../../funcComponent/inputBox/InputBox';
-import x from '../../../'
 import Button from '../../funcComponent/button/Button';
 import ChangeLeng from "../changeLeng/ChangeLeng";
 import LinkCustom from "../../funcComponent/link/LinkCustom";
@@ -16,87 +15,117 @@ import paths from '../../../routes/paths'
 // utils 
 import { checkPassword } from '../../../utils/utils'
 
+// per le traduzioni 
 import "../../../i18n"
-// import { useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
 
 import { useNavigate } from "react-router";
 
 let nameUser = null;
-let password = null;
+// let password = null;
 
 const Login = () => {
 
     const navigate = useNavigate();
+    const { t, i18n } = useTranslation();
+
 
     const [state, setState] = useState({
         errorUser: false,
         errorPassword: false,
-        //errorMessagePassword: "",
+        password : null
+
     })
 
+    // rivalorizziamo password e nameUser a null quando si ditrugge il componente 
     useEffect(() => {
         return () => {
-            password = null;
             nameUser = null;
+            setState({
+                password : null
+            })
         }
     }, [])
 
+    // funzione valorizza nameUser al change input Username 
     const userNameOnChange = (e) => {
         nameUser = e;
     }
+    // funzione valorizza password + controllo se la password è corretta (il controllo è su utils)
     const passwordOnChange = (e) => {
         let obj = { ...state }
+        obj.password = e;
         if (checkPassword(e)) {
             obj.errorPassword = false;
-            password = e;
         }
         setState(obj)
-
-
     }
-    const { t, i18n } = useTranslation();
 
+    // funzione check data invio 
     const loginBtn = (params) => () => {
-        console.log(nameUser, '   ', password)
+        console.log(state.password)
         let obj = { ...state }
-        if (!nameUser && !password) {
+
+        // se user e pass sono null 
+        if (!nameUser && !state.password && !checkPassword(state.password))  {
             obj.errorUser = true;
             obj.errorPassword = true;
-        } else if (!nameUser || !password) {
-            if (!nameUser) {
-                obj.errorUser = true;
-            } else if (!password) {
-                obj.errorPassword = true;
-            }
+        } else if (!nameUser) {
+            obj.errorUser = true;
+        } else if (!checkPassword(state.password)) {
+            obj.errorPassword = true;
         } else {
             obj.errorUser = false;
             obj.errorPassword = false;
             navigate(params)
         }
         setState(obj)
-
-
-
     }
     // messaggio di errore se utente null 
     const checkErrorMessageUsername = () => {
         if (state.errorUser) {
-            return (<div className="error"><span className="advice_error">{t("errorU")}</span> <span><i className="fas fa-exclamation-circle"></i></span></div>)
+            return (
+                <div className="error">
+                    <span className="advice_error">
+                        {t("errorU")}
+                    </span>
+                    <span>
+                        <i className="fas fa-exclamation-circle">
+                        </i>
+                    </span>
+                </div>)
         }
     }
     // messaggio di errore se password non corretta
     const checkErrorMessagePassword = () => {
 
         if (state.errorPassword) {
-            return (<div className="error"><span className="advice_error">
-                {t("errorPCar")}</span> <span><i className="fas fa-exclamation-circle"></i></span></div>)
+            return (
+                <div className="error">
+                    {(state.password === null) &&
+                        <span className="advice_error">
+                            {t("errorP")}
+                        </span>
+                    }
+                    {
+                        (state.password !== null) &&
+                        <span className="advice_error">
+                            {t("errorPCar")}
+                        </span>
+                    }
+
+                    <span>
+                        <i className="fas fa-exclamation-circle">
+                        </i>
+                    </span>
+                </div>)
         }
     }
     return (
         <div className="login">
             <h1>Login</h1>
 
+            {/* input username  */}
             <InputBox
                 box_inputCustom={'box_inputCustom_user'}
                 labelName={t("Username")}
@@ -108,7 +137,7 @@ const Login = () => {
                 callback={userNameOnChange}
                 children={checkErrorMessageUsername()}
             />
-
+            {/* input password  */}
             <InputBox
                 box_inputCustom={'box_inputCustom_password'}
                 labelName={t('Password')}
@@ -120,6 +149,7 @@ const Login = () => {
                 callback={passwordOnChange}
                 children={checkErrorMessagePassword()}
             />
+            {/* password dimenticata ?  */}
             <div className="forgot_psw_link">
                 <LinkCustom
                     cssCustom="a_custom"
@@ -127,6 +157,7 @@ const Login = () => {
                     nameLink={t("pd")}
                 />
             </div>
+            {/* bottone login  */}
             <div className="box_button">
                 <Button
                     callback={loginBtn(paths.HOMEPAGE)}
@@ -136,9 +167,11 @@ const Login = () => {
                 />
             </div>
 
+            {/* avviso oppure iscriviti con social */}
             <div className="sign_advice usingSocial">
                 {t("signUp")}
             </div>
+            {/* social  */}
             <div style={{ display: 'flex', justifyContent: "center", alignItems: "center" }}>
                 <LinkCustom
                     cssCustom="color bg1"
@@ -156,9 +189,11 @@ const Login = () => {
                     nameLink={<i className="fab fa-google"></i>}
                 />
             </div>
+            {/* avviso oppure iscriviti  */}
             <div className="sign_advice new">
                 {t("signUp")}
             </div>
+            {/* link che porta alla pagina di registrazione  */}
             <div className="forgot_psw_link2" style={{ textAlign: "center" }}>
                 <LinkCustom
                     cssCustom={'sign_up_bottom'}
@@ -167,6 +202,7 @@ const Login = () => {
                 />
             </div>
 
+            {/* componente per cambiare lingua  */}
             <ChangeLeng />
         </div>
 

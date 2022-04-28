@@ -23,11 +23,13 @@
     order: 1;
 }
 
+// label custom 
 .label_custom_login {
     display: block;
     color: $primary_color;
     padding-left: 7px;
 }
+// input custom 
 .Input_custom_login {
     width: 90%;
     line-height: 1.2;
@@ -81,9 +83,6 @@
             visibility: visible;
         }
     }
-    // &:hover ~.advice_error{
-    //     visibility: visible;
-    // }
 }
 
 @keyframes focusInput {

@@ -18,12 +18,10 @@ const LinkCustom = (props) =>{
 // default props 
 
 LinkCustom.defaultProps = {
-    cssCustom : ''
 }
 
 // propTypes 
 LinkCustom.propTypes = {
-    
     paths : PropTypes.string.isRequired
 }
 

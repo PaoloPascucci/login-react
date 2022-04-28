@@ -13,7 +13,6 @@ function InputBox(props) {
         <div className={props.box_inputCustom}>
             <label className={props.cssCustomLabel}>{props.labelName}</label>
             <div className="input_mod_content">
-
                 <input type={props.type} className={props.cssCustomInput} onChange={changeValue} placeholder={props.placeholder} />
                 <div className="content_input">
                     {props.content}
